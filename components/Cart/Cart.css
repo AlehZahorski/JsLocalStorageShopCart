@@ -1,0 +1,30 @@
+.cart-container{
+    width: 95%;
+    height: 95vh;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    padding: 25px;
+    background-color: #fff;
+}
+.cart-element{
+    border-bottom: 2px solid black;
+    margin:0 auto;
+}
+.cart-element__img{
+    width: 40px;
+}
+.cart__close{
+    position: absolute;
+    width: 35px;
+    top:20px;
+    right: 20px;
+    background-image: url(../../img/close.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    cursor: pointer;
+    color: white;
+}
