@@ -1,12 +1,21 @@
 class Shirts {
     constructor(){
-        this.classNameActive = ' products-element__btn_active';
+        this.classNameActive = 'products-element__btn_active';
         this.labelAdd = "🛒Add to cart";
         this.labelRemove = 'Remove from cart';
     }
 
-    addProcutsToCart(){
-        console.log('Dziala no kurwa w koncu')
+    addProcutsToCart(e, id){
+        const { pushProduct, products } = localStorageUtil.putProducts(id);
+            // console.log(e, id)
+        if(pushProduct){
+            e.classList.add(this.classNameActive);
+            e.innerHTML = this.labelRemove;
+        }else{
+            e.classList.remove(this.classNameActive);
+            e.innerHTML = this.labelAdd;
+        }
+        headerShow.render(products.length);
     }
 
     render() {
@@ -29,7 +38,7 @@ class Shirts {
                 <span class="products-element__name">${name}</span>
                 <img class="products-element__img" src="${img}">
                 <span class="products-element__price">💳${price}</span>
-                <button class="products-element__btn ${activeClass}" onclick="shirtsShow.addProcutsToCart()">🛒Add to cart</button>
+                <button class="products-element__btn ${activeClass}" onclick="shirtsShow.addProcutsToCart(this, ${id})">${activeText}</button>
             </li>
             `;
         })
